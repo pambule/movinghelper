@@ -1,11 +1,3 @@
-//
-//  TaskTableViewCell.swift
-//  MovingHelper
-//
-//  Created by Ellen Shapiro on 6/9/15.
-//  Copyright (c) 2015 Razeware. All rights reserved.
-//
-
 import UIKit
 
 public class TaskTableViewCell: UITableViewCell {
@@ -13,16 +5,17 @@ public class TaskTableViewCell: UITableViewCell {
   @IBOutlet var titleLabel: UILabel!
   @IBOutlet var notesLabel: UILabel!
   @IBOutlet public var checkbox: Checkbox!
-  var currentTask: Task? 
-public var delegate: TaskUpdatedDelegate? 
+  var currentTask: Task?
+  public var delegate: TaskUpdatedDelegate?
   
   public override func prepareForReuse() {
-  super.prepareForReuse()
-  currentTask = nil      
-  delegate = nil
-}
+    super.prepareForReuse()
+    currentTask = nil
+    delegate = nil
+  }
+  
   public func configureForTask(task: Task) {
-  currentTask = task
+    currentTask = task
     titleLabel.text = task.title
     notesLabel.text = task.notes
     configureForDoneState(task.done)
@@ -45,8 +38,8 @@ public var delegate: TaskUpdatedDelegate?
     configureForDoneState(!checkbox.isChecked)
     
     if let task = currentTask {
-  task.done = checkbox.isChecked
-  delegate?.taskUpdated(task)
-}
+      task.done = checkbox.isChecked
+      delegate?.taskUpdated(task)
+    }
   }
 }
