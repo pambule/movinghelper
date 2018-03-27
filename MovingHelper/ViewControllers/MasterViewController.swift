@@ -137,6 +137,7 @@ extension MasterViewController : UITableViewDataSource {
   }
   
   override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  cell.delegate = self
     return sections.count
   }
   
