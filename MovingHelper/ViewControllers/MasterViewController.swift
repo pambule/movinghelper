@@ -137,7 +137,7 @@ extension MasterViewController : UITableViewDataSource {
   }
   
   override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-  cell.delegate = self
+ 
     return sections.count
   }
   
@@ -165,7 +165,7 @@ extension MasterViewController : UITableViewDataSource {
     let cell = tableView.dequeueReusableCellWithIdentifier(TaskTableViewCell.cellIdentifierFromClassName(), forIndexPath: indexPath) as! TaskTableViewCell
     let task = taskForIndexPath(indexPath)
     cell.configureForTask(task)
-    
+     cell.delegate = self
     return cell
   }
 }
